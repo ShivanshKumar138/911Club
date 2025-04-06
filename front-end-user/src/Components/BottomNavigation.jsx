@@ -166,19 +166,12 @@
 // };
 
 // export default BottomNavigationArea;
-
-
-
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Box } from "@mui/material";
-import { border, borderRadius, height, width } from "@mui/system";
-import promotionLogo from "../../public/promotionLogo/promotion.png"
-// import { backgroundOrigin } from "html2canvas/dist/types/css/property-descriptors/background-origin";
+import { Box, Typography } from "@mui/material";
 
 const BottomNavigationArea = () => {
   const location = useLocation();
@@ -201,137 +194,192 @@ const BottomNavigationArea = () => {
     bottomNav: {
       position: "fixed",
       bottom: 0,
-      padding: isSmallScreen ? "4px 0" : "6px 0",
-      backgroundImage: "url(/assets/images/tabBarBg-01df93c.png)",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundColor: "transparent",
+      backgroundColor: "white",
       width: "100%",
       maxWidth: isSmallScreen ? "100%" : "396px",
       height: isSmallScreen ? "60px" : "70px",
-      paddingTop: isSmallScreen ? "0.5%" : "1%",
-      zIndex: 1000
+      zIndex: 1000,
+      boxShadow: "0px -2px 10px rgba(0,0,0,0.05)",
+      display: "flex",
+      justifyContent: "space-around",
+      alignItems: "center",
+      padding: "0 8px",
     },
     navItem: {
-      minWidth: isSmallScreen ? "50px" : "80px",
-      padding: isSmallScreen ? "4px 0" : "6px 12px",
-       fontWeight: 400,
-          fontFamily: "Arial",
-          fontSize:"12px",
+      minWidth: "auto",
+      padding: 0,
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      fontWeight: 400,
+      fontFamily: "Arial",
+      fontSize: "12px",
+      color: "#AEAEAE",
+    },
+    centerButton: {
+      width: "80px", // Wider for oval shape
+      height: "60px", // Slightly shorter for oval proportions
+      position: "relative",
+      bottom: "15px", // Adjust this to control how much it extends below nav bar
+      flex: "0 0 auto",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      margin: "0 8px",
+    },
+    centerButtonInner: {
+      width: "80px", // Match the width of centerButton
+      height: "60px", // Match the height of centerButton
+      backgroundColor: "#FF6B6B",
+      borderRadius: "30px", // Rounded corners to create oval effect
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      paddingBottom: "4px", // Add space for the label at bottom
     },
     icon: {
-      width: isSmallScreen ? "20px" : "25px",
-      height: isSmallScreen ? "20px" : "25px",
+      width: "24px",
+      height: "24px",
+      marginBottom: "4px",
     },
-    promotionIcon: {
-      width: isSmallScreen ? "50px" : "50px",
-      height: isSmallScreen ? "50px" : "50px",
+    centerIcon: {
+      width: "32px",
+      height: "32px",
+      color: "white",
+      marginBottom: "2px",
     },
-    promotionContainer: {
-      marginTop: isSmallScreen ? "-30px" : "-40px",
-      borderRadius:"50px",
-      width:"50px",
-      height:"50px",
-    }
+    label: {
+      fontSize: "12px",
+      fontFamily: "Arial",
+      fontWeight: 400,
+      marginTop: "2px",
+    },
+    centerLabel: {
+      fontSize: "12px",
+      fontFamily: "Arial",
+      fontWeight: 400,
+      color: "white",
+      marginTop: "0px",
+    },
   };
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={handleChange}
-      showLabels
-      style={styles.bottomNav}
-    >
+    <Box style={styles.bottomNav}>
       <BottomNavigationAction
         style={{
           ...styles.navItem,
-          color: value === "/home" ? "rgb(245,68,68)" : "#80849c"
+          color: value === "/promotion" ? "#FF6B6B" : "#AEAEAE",
         }}
-        label="Home"
-        value="/home"
+        label="Promotion"
+        value="/promotion"
+        onClick={() => handleChange(null, "/promotion")}
         icon={
-          <img
-            src={value === "/home"
-              ? "https://www.66lottery9.com/static/home/icon_home_on.png?v=1.0.2"
-              : "https://www.66lottery9.com/static/home/icon_home.png?v=1.0.2"
-            }
-            style={styles.icon}
-            alt="home"
-          />
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <svg style={styles.icon} viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,21L10.55,19.7C5.4,15.36 2,12.28 2,8.5C2,5.42 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.09C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.42 22,8.5C22,12.28 18.6,15.36 13.45,19.7L12,21Z" />
+            </svg>
+            <Typography
+              style={{
+                ...styles.label,
+                color: value === "/promotion" ? "#FF6B6B" : "#AEAEAE",
+              }}
+            >
+              Promotion
+            </Typography>
+          </Box>
         }
       />
+
       <BottomNavigationAction
         style={{
           ...styles.navItem,
-          color: value === "/activity" ? "rgb(245,68,68)" : "#80849c"
+          color: value === "/activity" ? "#FF6B6B" : "#AEAEAE",
         }}
         label="Activity"
         value="/activity"
+        onClick={() => handleChange(null, "/activity")}
         icon={
-          <img
-            src={value === "/activity"
-              ? "https://www.66lottery9.com/static/home/icon_activity_on.png?v=1.0.1"
-              : "https://www.66lottery9.com/static/home/icon_activity.png?v=1.0.1"
-            }
-            style={styles.icon}
-            alt="activity"
-          />
-        }
-      />
-      <BottomNavigationAction
-        value="/promotion"
-        icon={
-          <Box style={styles.promotionContainer}>
-            <img
-              src="/assets/banners/icon_promotion.png"
-              style={styles.promotionIcon}
-              alt="promotion"
-            />
-            <span style={{fontSize:"normal"}}>Agent</span>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <svg style={styles.icon} viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20,7H4A2,2 0 0,0 2,9V15A2,2 0 0,0 4,17H20A2,2 0 0,0 22,15V9A2,2 0 0,0 20,7M9.5,11A1.5,1.5 0 0,1 8,12.5A1.5,1.5 0 0,1 6.5,11A1.5,1.5 0 0,1 8,9.5A1.5,1.5 0 0,1 9.5,11M16.5,11A1.5,1.5 0 0,1 15,12.5A1.5,1.5 0 0,1 13.5,11A1.5,1.5 0 0,1 15,9.5A1.5,1.5 0 0,1 16.5,11M20,7H4A2,2 0 0,0 2,9V15A2,2 0 0,0 4,17H20A2,2 0 0,0 22,15V9A2,2 0 0,0 20,7Z" />
+            </svg>
+            <Typography
+              style={{
+                ...styles.label,
+                color: value === "/activity" ? "#FF6B6B" : "#AEAEAE",
+              }}
+            >
+              Activity
+            </Typography>
           </Box>
         }
-        style={{
-          ...styles.navItem,
-          color: "rgb(253,106,25)"
-        }}
       />
+
+      <Box
+        style={styles.centerButton}
+        onClick={() => handleChange(null, "/games")}
+      >
+        <Box style={styles.centerButtonInner}>
+          <svg style={styles.centerIcon} viewBox="0 0 24 24" fill="white">
+            <path d="M7,6H17A6,6 0 0,1 23,12A6,6 0 0,1 17,18C15.22,18 13.63,17.23 12.53,16H11.47C10.37,17.23 8.78,18 7,18A6,6 0 0,1 1,12A6,6 0 0,1 7,6M6,9V11H4V13H6V15H8V13H10V11H8V9H6M15.5,12A1.5,1.5 0 0,0 14,13.5A1.5,1.5 0 0,0 15.5,15A1.5,1.5 0 0,0 17,13.5A1.5,1.5 0 0,0 15.5,12M18.5,9A1.5,1.5 0 0,0 17,10.5A1.5,1.5 0 0,0 18.5,12A1.5,1.5 0 0,0 20,10.5A1.5,1.5 0 0,0 18.5,9Z" />
+          </svg>
+        </Box>
+      </Box>
+
       <BottomNavigationAction
         style={{
           ...styles.navItem,
-          color: value === "/wallet" ? "rgb(245,68,68)" : "#80849c"
+          color: value === "/wallet" ? "#FF6B6B" : "#AEAEAE",
         }}
         label="Wallet"
         value="/wallet"
+        onClick={() => handleChange(null, "/wallet")}
         icon={
-          <img
-            src={value === "/wallet"
-              ? "https://www.66lottery9.com/static/home/icon_wallet_on.png?v=1.0.1"
-              : "https://www.66lottery9.com/static/home/icon_wallet.png?v=1.0.1"
-            }
-            style={styles.icon}
-            alt="wallet"
-          />
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <svg style={styles.icon} viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21,18V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V6H12C10.89,6 10,6.9 10,8V16A2,2 0 0,0 12,18M12,16H22V8H12M16,13.5A1.5,1.5 0 0,1 14.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,12A1.5,1.5 0 0,1 16,13.5Z" />
+            </svg>
+            <Typography
+              style={{
+                ...styles.label,
+                color: value === "/wallet" ? "#FF6B6B" : "#AEAEAE",
+              }}
+            >
+              Wallet
+            </Typography>
+          </Box>
         }
       />
+
       <BottomNavigationAction
         style={{
           ...styles.navItem,
-          color: value === "/account" ? "rgb(245,68,68)" : "#80849c"
+          color: value === "/account" ? "#FF6B6B" : "#AEAEAE",
         }}
         label="Account"
         value="/account"
+        onClick={() => handleChange(null, "/account")}
         icon={
-          <img
-            src={value === "/account"
-              ? "https://www.66lottery9.com/static/home/icon_account_on.png?v=1.0.1"
-              : "https://www.66lottery9.com/static/home/icon_account.png?v=1.0.1"
-            }
-            style={styles.icon}
-            alt="account"
-          />
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <svg style={styles.icon} viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+            </svg>
+            <Typography
+              style={{
+                ...styles.label,
+                color: value === "/account" ? "#FF6B6B" : "#AEAEAE",
+              }}
+            >
+              Account
+            </Typography>
+          </Box>
         }
       />
-    </BottomNavigation>
+    </Box>
   );
 };
 

@@ -109,7 +109,7 @@ const TabLayout = () => {
 
     {
       id: "lobby",
-      label: "Lottery",
+      label: "Minigame",
       img: "https://ossimg.goa999.vip/GoaGame/gamecategory/gamecategory_20240127134331wkt7.png",
       bgImage: "url(https://goagameb.com/assets/png/lottery_bg-1edd950a.png)",
     },
@@ -508,7 +508,7 @@ const TabLayout = () => {
         id: "poker_cards",
         title: "Poker",
         gameId: "EVOLIVE_TRPTable00000001",
-        img: "/assets/evolution/EVOLIVE_TRPTable00000001.png",
+        img: "https://ossimg.91admin123admin.com/91club/gamelogo/Card365/707_20250210142254071.png",
         subtitle: "Poker",
         desc: "365",
       },
@@ -700,6 +700,32 @@ const TabLayout = () => {
       {
         img: "https://image.0nxq4.cc/icon/202502051305011533117.png",
         gameId: "299",
+      },
+    ],
+    miniGames: [
+      {
+        id: "popular-1",
+        title: "Popular 1",
+        gameId: 800,
+        img: "https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/800_20250210113151122.png",
+      },
+      {
+        id: "popular-2",
+        title: "Popular 2",
+        gameId: 801,
+        img: "https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/801_20250210111620851.png",
+      },
+      {
+        id: "popular-3",
+        title: "Popular 3",
+        gameId: 903,
+        img: "https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/500_20250210111515519.png",
+      },
+      {
+        id: "popular-20",
+        title: "Popular 20",
+        gameId: 810,
+        img: "https://ossimg.91admin123admin.com/91club/gamelogo/TB_Chess/810_20250210113250708.png",
       },
     ],
   };
@@ -1290,6 +1316,77 @@ const TabLayout = () => {
       </div>
     </Box>
   );
+  const SectionHeading2 = ({ title, image }) => (
+    <Box
+      sx={{
+        fontSize: "18px",
+        fontWeight: 700,
+        fontFamily: "Arial, sans-serif",
+        color: "#333",
+        mb: 1,
+        pl: 0,
+        lineHeight: "1",
+        width: "90%",
+        display: "flex",
+        alignItems: "center",
+        gap: "4px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+          position: "relative",
+        }}
+      >
+        {/* 8-ball image */}
+
+        {/* Title */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            fontSize: "18px",
+            fontWeight: "bold",
+            color: "#1a365d",
+          }}
+        >
+          {title}
+        </div>
+
+        {/* All button */}
+        <div
+          style={{
+            marginLeft: "auto",
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <button
+            style={{
+              border: "1px solid #d1d5db",
+              borderRadius: "16px",
+              background: "#f3f4f6",
+              color: "#6b7280",
+              fontSize: "14px",
+              cursor: "pointer",
+              padding: "2px 12px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: "normal",
+            }}
+            onClick={() => {
+              navigate("/all-games");
+            }}
+          >
+            All
+          </button>
+        </div>
+      </div>
+    </Box>
+  );
 
   const LotteryItem = ({ title, subtitle, desc, img, onClick, amount }) => (
     <Box
@@ -1345,9 +1442,9 @@ const TabLayout = () => {
           src={img}
           alt={title}
           sx={{
-            width: "60px",
-            height: "60px",
-            objectFit: "contain",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
           }}
         />
       </Box>
@@ -1491,7 +1588,110 @@ const TabLayout = () => {
                 src={game.img}
                 alt={game.title}
                 sx={{
-                  width: "90%",
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </Box>
+          ))}
+        </Box>
+
+        {totalPages > 1 && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              gap: 1,
+              mt: 2,
+            }}
+          >
+            <Box
+              onClick={() => setPage(Math.max(0, currentPage - 1))}
+              sx={{
+                width: 32,
+                height: 32,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                bgcolor: "#4D8FFF",
+                borderRadius: "8px",
+                cursor: "pointer",
+                color: "#fff",
+                "&:hover": { bgcolor: "#4D8FFF" },
+              }}
+            >
+              {"<"}
+            </Box>
+            <Box
+              onClick={() => setPage(Math.min(totalPages - 1, currentPage + 1))}
+              sx={{
+                width: 32,
+                height: 32,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                bgcolor: "#F95959",
+                borderRadius: "8px",
+                cursor: "pointer",
+                color: "#fff",
+                "&:hover": { bgcolor: "#4D8FFF" },
+              }}
+            >
+              {">"}
+            </Box>
+          </Box>
+        )}
+      </Box>
+    );
+  };
+
+  const GameGrid2 = ({ games, currentPage, setPage, onGameClick }) => {
+    const itemsPerPage = 6;
+    const currentItems = games.slice(
+      currentPage * itemsPerPage,
+      (currentPage + 1) * itemsPerPage
+    );
+    const totalPages = Math.ceil(games.length / itemsPerPage);
+
+    return (
+      <Box sx={{ position: "relative" }}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "repeat(2, 1fr)", // 2 columns for extra small screens (below 600px, which includes your 300px requirement)
+              sm: "repeat(3, 1fr)", // 3 columns for small screens and above
+              md: "repeat(3, 1fr)", // 4 columns for medium screens and above
+            },
+            gap: 1,
+            mb: 2,
+          }}
+        >
+          {currentItems.map((game) => (
+            <Box
+              key={game.id}
+              onClick={() => onGameClick(game.gameId)}
+              sx={{
+                width: { xs: "100%", sm: 120 }, // Full width on extra small screens, fixed width on larger screens
+                height: 160,
+                marginRight: 0,
+                bgcolor: "rgb(254,167,148)",
+                borderRadius: "16px",
+                overflow: "hidden",
+                cursor: "pointer",
+                transition: "0.3s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+              }}
+            >
+              <Box
+                component="img"
+                src={game.img}
+                alt={game.title}
+                sx={{
+                  width: "100%",
                   height: "100%",
                   objectFit: "cover",
                 }}
@@ -1760,22 +1960,19 @@ const TabLayout = () => {
 
       <Box sx={{ mt: 0, px: 1 }}>
         {activeTab === 1 && (
-          <Box>
-            <SectionHeading
-              title="Lottery"
-              image={"https://91appl.com/assets/svg/ball_8-075598b0.svg"}
-            />
-            {lotteryGames.map((game) => (
-              <LotteryItem
-                key={game.id}
-                title={game.title}
-                subtitle={game.subtitle}
-                desc={game.desc}
-                img={game.img}
-                onClick={() => handleItemClick(game.path)}
-              />
-            ))}
-          </Box>
+          <GameGrid2
+            games={gamesByTab.miniGames}
+            currentPage={bingoPage}
+            setPage={setBingoPage}
+            onGameClick={(gameId) => {
+              if (!hasDeposit && !isDepositCheckLoading) {
+                setSelectedGame({ game: "Bingo Game" });
+                setOpenDialog(true);
+                return;
+              }
+              jili(gameId);
+            }}
+          />
         )}
 
         {activeTab === 0 && (
@@ -2318,7 +2515,10 @@ const TabLayout = () => {
 
         {activeTab === 2 && (
           <Box>
-            <SectionHeading title="Slot Games" />
+            <SectionHeading
+              title="Slot Games"
+              image={"https://91appl.com/assets/svg/slots_a-de9dd5ee.svg"}
+            />
             <GameGrid
               games={gamesByTab.slot}
               currentPage={slotPage}
@@ -2337,7 +2537,10 @@ const TabLayout = () => {
 
         {activeTab === 4 && (
           <Box>
-            <SectionHeading title="Pragmatic Play" />
+            <SectionHeading
+              title="Pragmatic Play"
+              image={"https://91appl.com/assets/svg/live-7d277a8c.svg"}
+            />
             <Box
               sx={{
                 display: "grid",
@@ -2426,7 +2629,7 @@ const TabLayout = () => {
     ))}
   </Box> */}
 
-            <SectionHeading title="EZUGI" />
+            <SectionHeading2 title="EZUGI" />
             <Box
               sx={{
                 display: "grid",
@@ -2470,7 +2673,7 @@ const TabLayout = () => {
               ))}
             </Box>
 
-            <SectionHeading title="Dream Gaming" />
+            <SectionHeading2 title="Dream Gaming" />
             <Box
               sx={{
                 display: "grid",
@@ -2518,16 +2721,23 @@ const TabLayout = () => {
 
         {activeTab === 3 && (
           <Box>
-            <SectionHeading title="Sports Games" />
-            {gamesByTab.sports.map((game) => (
-              <LotteryItemSports
-                key={game.id}
-                title={game.title}
-                subtitle={game.subtitle}
-                desc={game.desc}
-                img={game.img}
-              />
-            ))}
+            <SectionHeading
+              title="Sports Games"
+              image={"https://91appl.com/assets/svg/sports_a-5313dd33.svg"}
+            />
+            <GameGrid
+              games={gamesByTab.sports}
+              currentPage={bingoPage}
+              setPage={setBingoPage}
+              onGameClick={(gameId) => {
+                if (!hasDeposit && !isDepositCheckLoading) {
+                  setSelectedGame({ game: "Bingo Game" });
+                  setOpenDialog(true);
+                  return;
+                }
+                jili(gameId);
+              }}
+            />
           </Box>
         )}
 
@@ -2552,7 +2762,10 @@ const TabLayout = () => {
 
         {activeTab === 5 && (
           <Box>
-            <SectionHeading title="Card Games" />
+            <SectionHeading
+              title="Card Games"
+              image={"https://91appl.com/assets/svg/card_a-1da2e03a.svg"}
+            />
             {gamesByTab.cards.map((game) => (
               <LotteryItem
                 key={game.id}
@@ -2567,7 +2780,10 @@ const TabLayout = () => {
 
         {activeTab === 6 && (
           <Box>
-            <SectionHeading title="Dice Games" />
+            <SectionHeading
+              title="Dice Games"
+              image={"https://91appl.com/assets/svg/pop-bc4fd589.svg"}
+            />
             <GameGrid
               games={gamesByTab.dice}
               currentPage={dicePage}
@@ -2586,7 +2802,10 @@ const TabLayout = () => {
 
         {activeTab === 7 && (
           <Box>
-            <SectionHeading title="Bingo Games" />
+            <SectionHeading
+              title="Fishing Games"
+              image={"https://91appl.com/assets/png/fishing_a-8b8f8c2c.png"}
+            />
             <GameGrid
               games={gamesByTab.bingo}
               currentPage={bingoPage}
