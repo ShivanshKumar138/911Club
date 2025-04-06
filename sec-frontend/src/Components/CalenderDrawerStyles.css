@@ -1,0 +1,181 @@
+/* General drawer styling */
+.drawer {
+    background-color: #f5f5f5;
+    border-radius: 20px 20px 0 0;
+    padding: 20px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Header styling */
+  .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .drawer-header Typography {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .drawer-header .close-button {
+    font-size: 22px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .drawer-header .close-button:hover {
+    color: #333;
+  }
+  
+  /* Month and year selector styling */
+  .month-year-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .month-year-selector .MuiIconButton-root {
+    padding: 8px;
+    color: #555;
+  }
+  
+  .month-year-selector Typography {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Day labels styling */
+  .day-labels {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  
+  .day-labels Typography {
+    font-size: 14px;
+    font-weight: 500;
+    color: #888;
+  }
+  
+  /* Date grid styling */
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+  
+  .date-grid .date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .date-grid .date:hover {
+    background-color: #cbebc7;
+  }
+  
+  .date-grid .date.selected-start,
+  .date-grid .date.selected-end {
+    background-color: #F95959;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .date-grid .date.in-range {
+    background-color: #00ea94;
+  }
+  
+  /* Bottom section styling */
+  .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Date range display styling */
+  .date-range-display {
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  .date-range-display Typography {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  /* Confirm button styling */
+  .confirm-button {
+    background-color: #F95959;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .confirm-button:hover {
+    background-color: #F95959;
+  }
+  
+  .confirm-button:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .drawer {
+      padding: 16px;
+    }
+  
+    .drawer-header Typography {
+      font-size: 20px;
+    }
+  
+    .month-year-selector Typography {
+      font-size: 16px;
+    }
+  
+    .date-grid .date {
+      height: 35px;
+      font-size: 14px;
+    }
+  
+    .bottom-section {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .date-range-display {
+      margin-bottom: 12px;
+      text-align: center;
+    }
+  
+    .confirm-button {
+      width: 100%;
+    }
+  }

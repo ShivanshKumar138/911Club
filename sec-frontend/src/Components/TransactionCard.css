@@ -1,0 +1,43 @@
+.transaction-card {
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background-color: #ffffff;
+  }
+  
+  .transaction-header {
+    padding: 8px 10px;
+    /* font-weight: bold; */
+    text-align: left;
+    color: #1e2637;
+  }
+  
+  .transaction-body {
+    padding: 10px;
+    background-color: #FFFFFF;
+  }
+  
+  
+  
+  .transaction-detail,
+  .transaction-time,
+  .transaction-balance {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 2%;
+  }
+  
+  .transaction-label {
+    color: #768096;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  
+  .transaction-value {
+    color: #768096;
+    text-align: right;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  

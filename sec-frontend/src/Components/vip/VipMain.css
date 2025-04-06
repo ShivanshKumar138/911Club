@@ -1,0 +1,100 @@
+.topbox {
+  background: #FA6764;
+  min-height: 6rem;
+  width: 91.8%;
+  color:white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+  position: relative;
+}
+
+.image-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  left: 2rem;
+  top: 0.5rem;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.top-right {
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.top-image-box img {
+  width: 40px;
+  height: auto;
+  margin-bottom: 0.2rem;
+}
+
+.top-right-bottom {
+  font-size: 1rem;
+}
+
+.exp-box {
+  position: relative;
+  top: -30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  margin: 0 7%;
+  border-radius: 10px;
+ 
+}
+
+.exp {
+  background: #ffffff;
+  text-align: center;
+  width: 45%;
+  padding: 1px; /* Add padding for internal spacing */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+}
+
+.exp-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2d2d2d;
+  padding: 0.7rem;
+}
+
+.exp-number {
+  color: #FA6764; /* Green color for the number */
+  font-size: 14px; /* Slightly larger for emphasis */
+  margin-bottom: 0; /* Ensure no space below the number */
+}
+
+.exp-text {
+  color: #80849c; /* Lighter color for the text */
+  font-size: 14px; /* Adjust the size for better readability */
+  margin-top: 0; /* Remove spacing between the number and text */
+}
+
+/* .notice-mid {
+  margin-top: 10%;
+} */
+
+.n-box {
+  color: #768096;
+  border: 1px solid #768096;
+  margin: 10px auto;
+  width: 90%;
+  padding: 12px;
+  font-size: 0.7rem;
+  border-radius: 8px;
+  text-align: center;
+}

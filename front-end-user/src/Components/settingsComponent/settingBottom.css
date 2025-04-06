@@ -1,0 +1,48 @@
+.setting-bottom-box{
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    /* box-shadow: 0 0.5333rem 0.41333rem rgb(152, 150, 150); */
+    border-radius: 0.76667rem;
+    display: flex;
+    align-items: center;  
+    justify-content: space-evenly;
+    padding: 10px 0.28rem;
+    
+
+}
+
+.bottom-box-name{
+    font-size: 1.1em;
+    font-weight: 400;
+    color: black;
+    display: flex;
+    justify-items: flex-start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bottom-img {
+    width: 50px;
+    height: 100%;
+    padding-top: 5px;
+}
+
+.bottom-img img{
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-goto{
+    display: flex;
+    align-items: center;
+    color: rgb(167,165,161);
+}
+
+.leftflex{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}

@@ -1,0 +1,123 @@
+.outerContainer{
+    width: 100%;
+    margin: 0 auto;
+  
+}
+
+.bannerBox{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 96%;
+    background-color: #f2f2f1;
+    height: max-content;
+    padding: 0 0.4rem 0.26667rem;
+    background: url("/public/assets/images/headerRed.png") no-repeat center / cover;
+}
+
+.content{
+    width: 10%;
+      
+    /* padding: 0.3em 1em 0.3em 1em; */
+}
+
+.contentOne{
+    color: rgb(255, 253, 251);
+
+    text-align:left
+  
+}
+
+.contentOne h2{
+    margin: 0;
+}
+
+.contentOne p{
+    margin-top:5px;
+    margin-bottom: 20px;
+}
+
+.contentTwo{
+    display: flex;
+    flex-direction: column;
+    
+    gap: 18px;
+    align-items: center;
+    width: 46%;
+    height: 45px;
+    margin-bottom: 0.21333rem;
+    padding: 0.61333rem 0.41333rem 0.61333rem 0.14667rem;
+    color: #f54645;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: .32rem;
+    background: #fff;
+    clip-path: polygon(100% 0, 90% 50%, 100% 100%, 0 100%, 0 0);
+    word-break: break-all;
+}
+
+.contentThree p{
+    color: white;
+    text-align: left;
+}
+
+.contentThree h3{
+    text-align: left;
+    margin-top: -15px;
+    color: white;
+    
+}
+
+.buttonbox{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.attendanceButton {
+    color: #fff;
+    font-weight: bold;
+}
+.cardbox{
+    width: 100%;
+    padding: 20px  10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #f2f2f1;
+    row-gap: 20px;
+}
+
+#coinbox-container{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    justify-content: space-around;
+    gap: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1em;
+    color: "black";
+}
+#coinbox-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+#coinbox-amount{
+    font-size: 1.2em;
+}
+#coinbox-image{
+    width: 130px;
+    height: 100%;
+}
+
+#coinbox-image img{
+    width: 100%;
+    height: 100%;
+}

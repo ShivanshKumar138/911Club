@@ -1,0 +1,126 @@
+.Card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  border-bottom: 0.5px solid #888;
+}
+
+.card-header-left h6 {
+  margin: 0;
+  font-size: 18px;
+  color: #F95959;
+}
+
+.card-header-left p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.card-header-right {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card-content .card-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.card-content .label {
+  color: black;
+}
+
+.card-content .value {
+  color: black;
+  font-weight: 400;
+}
+
+.lottery-results-heading {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 16px 0 8px;
+}
+
+.lottery-results {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.result-item {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.result-item.number {
+  background-color: #ff6347;
+  color: white;
+}
+
+.result-item.small {
+  background-color: #4169e1;
+  color: white;
+}
+.result-item.big {
+  background-color: #ffa82e;
+  color: white;
+}
+
+.color-red{
+  background-color: #ff6347;
+  color: white;
+}
+.color-green{
+  background-color: #40ad72;
+  color: white;
+}
+.color-mix{
+  background: linear-gradient(to right, #fd565c 50%, #b659fe 50%);
+  color: white;
+}
+.color-mix-zero{
+  background: linear-gradient(to right, #fd565c 50%, #b659fe 50%);
+  color: white;
+}
+.color-mix-five{
+  background: linear-gradient(to right, #40ad72 50%, #b659fe 50%);
+  color: white;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.grid-item {
+  background-color: #F7F8FF;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.grid-item .value {
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: black;
+}
+
+.grid-item .label {
+  color: black;
+  font-size: 12px;
+}

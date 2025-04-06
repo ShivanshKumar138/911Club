@@ -1,0 +1,96 @@
+.settingpage-main-container {
+  width: 100%;
+  margin: 0 auto;
+  background: rgb(247,248,255);
+}
+
+.settingpage-top {
+  width: 100%;
+  height: 10rem;
+  padding-bottom: 2.90667rem;
+  background: linear-gradient(90deg, rgb(71,130,255) 0%, rgb(71,130,255) 100%);
+  display: flex;
+  -webkit-box-align: end;
+  align-items: flex-end;
+  border-radius: 0px 0px 5rem 5rem;
+}
+
+.settingpage-info {
+  margin: 0 auto;
+  width: 82%;
+  background: #ffffff;
+  border-radius: 0.7rem;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  row-gap: 0px;
+  padding: 1rem 1.4rem;
+  position: relative;
+  top: 7rem;
+  /* box-shadow: rgb(36,36,36) 0px 0.5333rem 0.61333rem; */
+  z-index: 99;
+}
+.avatar,
+.settingpage-name,
+.settingpage-uid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar-image {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  /* margin-right: 20px; */
+  overflow: hidden;
+}
+
+.avatar-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.change-avatar,
+.name,
+.uid {
+  font-size: small;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #80849c;
+}
+
+.settingpage-name h4,
+.settingpage-uid h4 {
+  font-weight: 600;
+  margin-left: 10px;
+  color: #80849c;
+}
+
+.settingpage-name {
+  border-bottom: 1px solid #f5f3f0;
+}
+
+.bottom-page {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 2em;
+  padding-right: 2em;
+  /* display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; */
+}
+
+.bottom-box-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 0.76667rem;
+  row-gap: 30px;
+  margin-bottom: 100px;
+}

@@ -1,0 +1,46 @@
+
+.coinbox-amount{
+    font-size: 1em;
+    color:"white"
+}
+.coinbox-image{
+    width: 50px;
+    height: 50px;
+}
+
+.coinbox-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.coinbox-container.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .coinbox-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Update CoinBox container width for grid layout */
+.coinbox-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 2px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 0.8em;
+    color: rgb(22, 22, 22);
+    transition: all 0.3s ease;
+}
+
+/* Keep other existing CSS rules the same */
